@@ -1,5 +1,6 @@
 package agh.po.lab3;
-
+import java.util.Map;
+import java.util.HashMap;
 public class CodingBat {
 
     public static void main(String[] args) {
@@ -46,6 +47,39 @@ public class CodingBat {
 
         return("Hello " + name + "!");
     }
+
+    public Map<String, String> mapAB4(Map<String, String> map) {
+        if (map.containsKey("a") && map.containsKey("b")){
+            String value_A = map.get("a");
+            String value_B = map.get("b");
+
+            if (value_A.length() > value_B.length()){
+                map.put("c", value_A);
+            }
+            else if (value_A.length() < value_B.length()){
+                map.put("c", value_B);
+            }
+            else {
+                map.put("a", "");
+                map.put("b", "");
+            }
+        }
+        return map;
+    }
+
+    public Map<String, String> pairs(String[] strings) {
+        Map<String, String> map = new HashMap<String, String>();
+        for (int i = 0; i < strings.length; i++){
+        String s = strings[i];
+
+        String first = String.valueOf(s.charAt(0));
+        String last = String.valueOf(s.charAt(s.length() - 1));
+
+        map.put(first, last);
+        }
+    return map;
+    }
+
 
 
 
